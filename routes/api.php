@@ -11,4 +11,3 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/movies/now-playing', [MovieController::class, 'index']);
 
-Route::get('/movies/{movie}', [MovieController::class, 'show'])->name('movies.show');
