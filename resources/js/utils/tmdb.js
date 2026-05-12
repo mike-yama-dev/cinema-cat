@@ -20,3 +20,13 @@ export const getNowPlaying = async () => {
     }
 };
 
+export const getMovieDetails = async (id) => {
+    try {
+        // This hits your Laravel route: http://localhost:8000/api/movies/{id}
+        const response = await api.get(`/movie/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Internal API Error:", error.message);
+        throw error;
+    }
+};

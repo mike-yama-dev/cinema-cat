@@ -211,74 +211,74 @@ register.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     register.form = registerForm
 /**
-* @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @see \App\Http\Controllers\Api\MovieController::welcome
+ * @see app/Http/Controllers/Api/MovieController.php:23
  * @route '/'
  */
-export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: home.url(options),
+export const welcome = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: welcome.url(options),
     method: 'get',
 })
 
-home.definition = {
+welcome.definition = {
     methods: ["get","head"],
     url: '/',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @see \App\Http\Controllers\Api\MovieController::welcome
+ * @see app/Http/Controllers/Api/MovieController.php:23
  * @route '/'
  */
-home.url = (options?: RouteQueryOptions) => {
-    return home.definition.url + queryParams(options)
+welcome.url = (options?: RouteQueryOptions) => {
+    return welcome.definition.url + queryParams(options)
 }
 
 /**
-* @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @see \App\Http\Controllers\Api\MovieController::welcome
+ * @see app/Http/Controllers/Api/MovieController.php:23
  * @route '/'
  */
-home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: home.url(options),
+welcome.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: welcome.url(options),
     method: 'get',
 })
 /**
-* @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @see \App\Http\Controllers\Api\MovieController::welcome
+ * @see app/Http/Controllers/Api/MovieController.php:23
  * @route '/'
  */
-home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: home.url(options),
+welcome.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: welcome.url(options),
     method: 'head',
 })
 
     /**
-* @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @see \App\Http\Controllers\Api\MovieController::welcome
+ * @see app/Http/Controllers/Api/MovieController.php:23
  * @route '/'
  */
-    const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-        action: home.url(options),
+    const welcomeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: welcome.url(options),
         method: 'get',
     })
 
             /**
-* @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @see \App\Http\Controllers\Api\MovieController::welcome
+ * @see app/Http/Controllers/Api/MovieController.php:23
  * @route '/'
  */
-        homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: home.url(options),
+        welcomeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: welcome.url(options),
             method: 'get',
         })
             /**
-* @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @see \App\Http\Controllers\Api\MovieController::welcome
+ * @see app/Http/Controllers/Api/MovieController.php:23
  * @route '/'
  */
-        homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: home.url({
+        welcomeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: welcome.url({
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
                             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -287,7 +287,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
     
-    home.form = homeForm
+    welcome.form = welcomeForm
 /**
 * @see \Inertia\Controller::__invoke
  * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13

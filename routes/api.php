@@ -10,3 +10,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/movies/now-playing', [MovieController::class, 'index']);
+
+Route::get('/movies/{movie}', [MovieController::class, 'show'])->name('movies.show');
