@@ -290,7 +290,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     dashboard.form = dashboardForm
 /**
 * @see \App\Http\Controllers\Api\MovieController::welcome
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 export const welcome = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -305,7 +305,7 @@ welcome.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MovieController::welcome
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 welcome.url = (options?: RouteQueryOptions) => {
@@ -314,7 +314,7 @@ welcome.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MovieController::welcome
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 welcome.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -323,7 +323,7 @@ welcome.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\Api\MovieController::welcome
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 welcome.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -333,7 +333,7 @@ welcome.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\Api\MovieController::welcome
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
     const welcomeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -343,7 +343,7 @@ welcome.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\Api\MovieController::welcome
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
         welcomeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -352,7 +352,7 @@ welcome.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\Api\MovieController::welcome
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
         welcomeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

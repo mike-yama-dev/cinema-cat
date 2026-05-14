@@ -1,85 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \App\Http\Controllers\Api\MovieController::index
- * @see app/Http/Controllers/Api/MovieController.php:16
- * @route '/api/movies/now-playing'
- */
-export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: index.url(options),
-    method: 'get',
-})
-
-index.definition = {
-    methods: ["get","head"],
-    url: '/api/movies/now-playing',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\Api\MovieController::index
- * @see app/Http/Controllers/Api/MovieController.php:16
- * @route '/api/movies/now-playing'
- */
-index.url = (options?: RouteQueryOptions) => {
-    return index.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\Api\MovieController::index
- * @see app/Http/Controllers/Api/MovieController.php:16
- * @route '/api/movies/now-playing'
- */
-index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: index.url(options),
-    method: 'get',
-})
-/**
-* @see \App\Http\Controllers\Api\MovieController::index
- * @see app/Http/Controllers/Api/MovieController.php:16
- * @route '/api/movies/now-playing'
- */
-index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: index.url(options),
-    method: 'head',
-})
-
-    /**
-* @see \App\Http\Controllers\Api\MovieController::index
- * @see app/Http/Controllers/Api/MovieController.php:16
- * @route '/api/movies/now-playing'
- */
-    const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-        action: index.url(options),
-        method: 'get',
-    })
-
-            /**
-* @see \App\Http\Controllers\Api\MovieController::index
- * @see app/Http/Controllers/Api/MovieController.php:16
- * @route '/api/movies/now-playing'
- */
-        indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: index.url(options),
-            method: 'get',
-        })
-            /**
-* @see \App\Http\Controllers\Api\MovieController::index
- * @see app/Http/Controllers/Api/MovieController.php:16
- * @route '/api/movies/now-playing'
- */
-        indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: index.url({
-                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-                            _method: 'HEAD',
-                            ...(options?.query ?? options?.mergeQuery ?? {}),
-                        }
-                    }),
-            method: 'get',
-        })
-    
-    index.form = indexForm
-/**
 * @see \App\Http\Controllers\Api\MovieController::indexShow
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 export const indexShow = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +16,7 @@ indexShow.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MovieController::indexShow
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 indexShow.url = (options?: RouteQueryOptions) => {
@@ -103,7 +25,7 @@ indexShow.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MovieController::indexShow
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 indexShow.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +34,7 @@ indexShow.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\Api\MovieController::indexShow
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
 indexShow.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +44,7 @@ indexShow.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\Api\MovieController::indexShow
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
     const indexShowForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +54,7 @@ indexShow.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\Api\MovieController::indexShow
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
         indexShowForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +63,7 @@ indexShow.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\Api\MovieController::indexShow
- * @see app/Http/Controllers/Api/MovieController.php:23
+ * @see app/Http/Controllers/Api/MovieController.php:24
  * @route '/'
  */
         indexShowForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -156,93 +78,93 @@ indexShow.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     indexShow.form = indexShowForm
 /**
-* @see \App\Http\Controllers\Api\MovieController::show
+* @see \App\Http\Controllers\Api\MovieController::getMovieDetails
  * @see app/Http/Controllers/Api/MovieController.php:42
- * @route '/movies/{movie}'
+ * @route '/movies/{id}'
  */
-export const show = (args: { movie: string | number } | [movie: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: show.url(args, options),
+export const getMovieDetails = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: getMovieDetails.url(args, options),
     method: 'get',
 })
 
-show.definition = {
+getMovieDetails.definition = {
     methods: ["get","head"],
-    url: '/movies/{movie}',
+    url: '/movies/{id}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Http\Controllers\Api\MovieController::show
+* @see \App\Http\Controllers\Api\MovieController::getMovieDetails
  * @see app/Http/Controllers/Api/MovieController.php:42
- * @route '/movies/{movie}'
+ * @route '/movies/{id}'
  */
-show.url = (args: { movie: string | number } | [movie: string | number ] | string | number, options?: RouteQueryOptions) => {
+getMovieDetails.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { movie: args }
+        args = { id: args }
     }
 
     
     if (Array.isArray(args)) {
         args = {
-                    movie: args[0],
+                    id: args[0],
                 }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        movie: args.movie,
+                        id: args.id,
                 }
 
-    return show.definition.url
-            .replace('{movie}', parsedArgs.movie.toString())
+    return getMovieDetails.definition.url
+            .replace('{id}', parsedArgs.id.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
 
 /**
-* @see \App\Http\Controllers\Api\MovieController::show
+* @see \App\Http\Controllers\Api\MovieController::getMovieDetails
  * @see app/Http/Controllers/Api/MovieController.php:42
- * @route '/movies/{movie}'
+ * @route '/movies/{id}'
  */
-show.get = (args: { movie: string | number } | [movie: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: show.url(args, options),
+getMovieDetails.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: getMovieDetails.url(args, options),
     method: 'get',
 })
 /**
-* @see \App\Http\Controllers\Api\MovieController::show
+* @see \App\Http\Controllers\Api\MovieController::getMovieDetails
  * @see app/Http/Controllers/Api/MovieController.php:42
- * @route '/movies/{movie}'
+ * @route '/movies/{id}'
  */
-show.head = (args: { movie: string | number } | [movie: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: show.url(args, options),
+getMovieDetails.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: getMovieDetails.url(args, options),
     method: 'head',
 })
 
     /**
-* @see \App\Http\Controllers\Api\MovieController::show
+* @see \App\Http\Controllers\Api\MovieController::getMovieDetails
  * @see app/Http/Controllers/Api/MovieController.php:42
- * @route '/movies/{movie}'
+ * @route '/movies/{id}'
  */
-    const showForm = (args: { movie: string | number } | [movie: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-        action: show.url(args, options),
+    const getMovieDetailsForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: getMovieDetails.url(args, options),
         method: 'get',
     })
 
             /**
-* @see \App\Http\Controllers\Api\MovieController::show
+* @see \App\Http\Controllers\Api\MovieController::getMovieDetails
  * @see app/Http/Controllers/Api/MovieController.php:42
- * @route '/movies/{movie}'
+ * @route '/movies/{id}'
  */
-        showForm.get = (args: { movie: string | number } | [movie: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: show.url(args, options),
+        getMovieDetailsForm.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: getMovieDetails.url(args, options),
             method: 'get',
         })
             /**
-* @see \App\Http\Controllers\Api\MovieController::show
+* @see \App\Http\Controllers\Api\MovieController::getMovieDetails
  * @see app/Http/Controllers/Api/MovieController.php:42
- * @route '/movies/{movie}'
+ * @route '/movies/{id}'
  */
-        showForm.head = (args: { movie: string | number } | [movie: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: show.url(args, {
+        getMovieDetailsForm.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: getMovieDetails.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
                             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -251,7 +173,7 @@ show.head = (args: { movie: string | number } | [movie: string | number ] | stri
             method: 'get',
         })
     
-    show.form = showForm
-const MovieController = { index, indexShow, show }
+    getMovieDetails.form = getMovieDetailsForm
+const MovieController = { indexShow, getMovieDetails }
 
 export default MovieController

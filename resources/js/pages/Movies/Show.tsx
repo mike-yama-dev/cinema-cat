@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default function Show({ movie }) {
+export default function Show({ movie }: { movie: { title: string; description: string } }) {
+    console.log(movie);
     return (
+
         <div className="p-8">
             <h1>{movie.title}</h1>
             <p>{movie.description}</p>

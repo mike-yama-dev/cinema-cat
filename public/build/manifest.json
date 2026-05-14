@@ -210,7 +210,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-hF0_MAMQ.css",
+    "file": "assets/app-B7AOCr1j.css",
     "name": "app",
     "names": [
       "app.css"
@@ -219,7 +219,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-D4GsR15y.js",
+    "file": "assets/app-DkzhAk1y.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -241,7 +241,7 @@
       "_security-DuQyB2bD.js"
     ],
     "dynamicImports": [
-      "resources/js/pages/Movies/Show.jsx",
+      "resources/js/pages/Movies/Show.tsx",
       "resources/js/pages/auth/confirm-password.tsx",
       "resources/js/pages/auth/forgot-password.tsx",
       "resources/js/pages/auth/login.tsx",
@@ -256,10 +256,10 @@
       "resources/js/pages/welcome.tsx"
     ]
   },
-  "resources/js/pages/Movies/Show.jsx": {
-    "file": "assets/Show-KD2k7XDS.js",
+  "resources/js/pages/Movies/Show.tsx": {
+    "file": "assets/Show-C1-LVvY2.js",
     "name": "Show",
-    "src": "resources/js/pages/Movies/Show.jsx",
+    "src": "resources/js/pages/Movies/Show.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_jsx-runtime-DQjoyD3y.js"
@@ -453,7 +453,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-NrSQjGH1.js",
+    "file": "assets/welcome-DxkQxPKY.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,

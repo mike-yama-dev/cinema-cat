@@ -5,13 +5,18 @@ import { getNowPlaying } from './../utils/tmdb';
 
 export default function Welcome({
     canRegister = true,
-    movies
+    nowPlaying,
+    populars,
+    topRated,
+    upcoming,
 }: {
     canRegister?: boolean;
-    movies: Array<{ id: number; title: string; overview: string}>; 
+    nowPlaying: Array<{ id: number; title: string; overview: string, poster_path: string }>; 
+    populars: Array<{ id: number; title: string; overview: string, poster_path: string }>;
+    topRated: Array<{ id: number; title: string; overview: string, poster_path: string }>;
+    upcoming: Array<{ id: number; title: string; overview: string, poster_path: string }>;
 }) {
     const { auth } = usePage().props;
-    console.log(movies);
     return (
         <>
             <Head title="Welcome">
@@ -52,20 +57,60 @@ export default function Welcome({
                     </nav>
                 </header>
                 <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
-                    <main className="flex w-full max-w-[335px] flex-col-reverse lg:max-w-4xl lg:flex-row">
-<div>
-            <h1>Now Playing</h1>
+                    <main className="flex w-full max-w-[335px] flex-col lg:max-w-4xl">
+        <div className='pb-4'>
+            <h1 className="font-bold">Now Playing</h1>
             <div className="movie-grid">
-                {movies && movies.map(movie => (
+                {nowPlaying && nowPlaying.map(movie => (
+                    <div key={movie.id} className="movie-card">
+                        <Link href={`/movies/${movie.id}`}>
+                            <h3>{movie.title}</h3>
+                        </Link>
+                    </div>                    
+                ))}
+            </div>
+        </div>
+
+        <div className='pb-4'>
+            <h1 className="font-bold">Popular</h1>
+            <div className="movie-grid">
+                {populars && populars.map(movie => (
                     <div key={movie.id} className="movie-card">
 <Link href={`/movies/${movie.id}`}>
     <h3>{movie.title}</h3>
 </Link>
                     </div>
+
+                    
                 ))}
             </div>
         </div>
 
+        <div className='pb-4'>
+            <h1 className="font-bold">Top Rated</h1>
+            <div className="movie-grid">
+                {topRated && topRated.map(movie => (
+                    <div key={movie.id} className="movie-card">
+                        <Link href={`/movies/${movie.id}`}>
+                            <h3>{movie.title}</h3>
+                        </Link>
+                    </div>                    
+                ))}
+            </div>
+        </div>
+
+        <div className='pb-4'>
+            <h1 className="font-bold">Upcoming</h1>
+            <div className="movie-grid">
+                {upcoming && upcoming.map(movie => (
+                    <div key={movie.id} className="movie-card">
+                        <Link href={`/movies/${movie.id}`}>
+                            <h3>{movie.title}</h3>
+                        </Link>
+                    </div>                    
+                ))}
+            </div>
+        </div>
                     </main>
                 </div>
                 <div className="hidden h-14.5 lg:block"></div>

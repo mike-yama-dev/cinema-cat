@@ -20,35 +20,44 @@ class MovieController extends Controller
 
         return $response->json();
     }
+
     public function indexShow()
     {
-        // 1. Fetch the data using your existing logic
-        $movieData = $this->index();
+        $token = config('services.tmdb.token');
 
-        // 2. Return the Inertia page with the data as a prop
+        // Fetch all categories
+        $nowPlaying = Http::withToken($token)->get('https://api.themoviedb.org/3/movie/now_playing')->json();
+        $populars = Http::withToken($token)->get('https://api.themoviedb.org/3/movie/popular')->json();
+        $topRated = Http::withToken($token)->get('https://api.themoviedb.org/3/movie/top_rated')->json();
+        $upcoming = Http::withToken($token)->get('https://api.themoviedb.org/3/movie/upcoming')->json();
+
         return Inertia::render('welcome', [
-            'movies' => $movieData['results'] ?? []
+            'nowPlaying' => $nowPlaying['results'] ?? [],
+            'populars'    => $populars['results'] ?? [],
+            'topRated'   => $topRated['results'] ?? [],
+            'upcoming'   => $upcoming['results'] ?? [],
         ]);
     }
 
     public function getMovieDetails($id)
     {
+        // 1. Fix the URL string (removed the extra '}' after $id)
         $response = Http::withToken(config('services.tmdb.token'))
             ->get("https://api.themoviedb.org/3/movie/{$id}?language=en-US");
 
-        return $response->json();
-    }
+        // 2. Check if the request was successful
+        if ($response->failed()) {
+            abort(404);
+        }
 
-    public function show($movie)
-    {
-        // 1. Fetch the data using your existing logic
-        $movieData = $this->getMovieDetails($movie);
+        // 3. Convert the response to an array/json
+        $movieData = $response->json();
 
-        // 2. Return the Inertia page with the data as a prop
         return Inertia::render('Movies/Show', [
-            'movie' => $movieData
+            'movie' => $movieData,
         ]);
     }
+
     /**
      * Store a newly created resource in storage.
      */
