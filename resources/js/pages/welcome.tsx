@@ -3,6 +3,8 @@ import { dashboard, login, register } from '@/routes';
 import React, { useEffect, useState } from 'react';
 import { getNowPlaying } from './../utils/tmdb';
 
+import MoviePoster from '@/components/welcome/movie-poster';
+
 export default function Welcome({
     canRegister = true,
     nowPlaying,
@@ -26,8 +28,8 @@ export default function Welcome({
                     rel="stylesheet"
                 />
             </Head>
-            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
-                <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl">
+            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6  lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
+                <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-8/10">
                     <nav className="flex items-center justify-end gap-4">
                         {auth.user ? (
                             <Link
@@ -57,60 +59,18 @@ export default function Welcome({
                     </nav>
                 </header>
                 <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
-                    <main className="flex w-full max-w-[335px] flex-col lg:max-w-4xl">
-        <div className='pb-4'>
-            <h1 className="font-bold">Now Playing</h1>
-            <div className="movie-grid">
-                {nowPlaying && nowPlaying.map(movie => (
-                    <div key={movie.id} className="movie-card">
-                        <Link href={`/movies/${movie.id}`}>
-                            <h3>{movie.title}</h3>
-                        </Link>
-                    </div>                    
-                ))}
-            </div>
+                    <main className="flex w-full max-w-[335px] flex-col lg:max-w-8/10">
+
+
+
+        <div>
+            <MoviePoster title="Now Playing" movies={nowPlaying} />
+            <MoviePoster title="Popular" movies={populars} />
+            <MoviePoster title="Top Rated" movies={topRated} />
+            <MoviePoster title="Upcoming" movies={upcoming} />
         </div>
 
-        <div className='pb-4'>
-            <h1 className="font-bold">Popular</h1>
-            <div className="movie-grid">
-                {populars && populars.map(movie => (
-                    <div key={movie.id} className="movie-card">
-<Link href={`/movies/${movie.id}`}>
-    <h3>{movie.title}</h3>
-</Link>
-                    </div>
 
-                    
-                ))}
-            </div>
-        </div>
-
-        <div className='pb-4'>
-            <h1 className="font-bold">Top Rated</h1>
-            <div className="movie-grid">
-                {topRated && topRated.map(movie => (
-                    <div key={movie.id} className="movie-card">
-                        <Link href={`/movies/${movie.id}`}>
-                            <h3>{movie.title}</h3>
-                        </Link>
-                    </div>                    
-                ))}
-            </div>
-        </div>
-
-        <div className='pb-4'>
-            <h1 className="font-bold">Upcoming</h1>
-            <div className="movie-grid">
-                {upcoming && upcoming.map(movie => (
-                    <div key={movie.id} className="movie-card">
-                        <Link href={`/movies/${movie.id}`}>
-                            <h3>{movie.title}</h3>
-                        </Link>
-                    </div>                    
-                ))}
-            </div>
-        </div>
                     </main>
                 </div>
                 <div className="hidden h-14.5 lg:block"></div>

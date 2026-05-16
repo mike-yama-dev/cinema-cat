@@ -210,7 +210,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-B7AOCr1j.css",
+    "file": "assets/app-DZH5SFil.css",
     "name": "app",
     "names": [
       "app.css"
@@ -219,7 +219,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-DkzhAk1y.js",
+    "file": "assets/app-BXgEcf7o.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -257,7 +257,7 @@
     ]
   },
   "resources/js/pages/Movies/Show.tsx": {
-    "file": "assets/Show-C1-LVvY2.js",
+    "file": "assets/Show-BD-McVb-.js",
     "name": "Show",
     "src": "resources/js/pages/Movies/Show.tsx",
     "isDynamicEntry": true,
@@ -453,7 +453,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-DxkQxPKY.js",
+    "file": "assets/welcome-C8kkkO1I.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,

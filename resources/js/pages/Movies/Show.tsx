@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function Show({ movie }: { movie: { title: string; description: string } }) {
+export default function Show({ movie }: { movie: { title: string; overview: string } }) {
     console.log(movie);
     return (
 
         <div className="p-8">
             <h1>{movie.title}</h1>
-            <p>{movie.description}</p>
+            <p>{movie.overview}</p>
             {/* Add other movie details here */}
         </div>
     );
